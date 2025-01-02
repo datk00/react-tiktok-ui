@@ -1,0 +1,28 @@
+@use 'css-reset-and-normalize';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --black: rgb(22, 24, 35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+    font-family: 'Rubik', serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
