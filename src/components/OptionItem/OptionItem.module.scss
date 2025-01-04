@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 7px 8px 10px 16px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.icon {
+    margin-right: 9px;
+}
+
+.nameOption {
+    font-size: 16px;
+    font-weight: 600;
+    color: #161823;
+}

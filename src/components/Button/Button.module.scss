@@ -1,0 +1,26 @@
+.wrapper {
+    --color-button-primary: rgb(254, 44, 85);
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+.primary {
+    font-size: 16px;
+    padding: 6px 8px;
+    width: 100px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: var(--color-button-primary);
+    color: var(--white);
+    font-weight: 700;
+    border: none !important;
+    outline: none !important;
+    margin-left: 16px;
+}

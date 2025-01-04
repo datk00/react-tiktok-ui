@@ -13,6 +13,7 @@
         border: none;
         display: flex;
         align-items: center;
+        justify-content: center;
         outline: none;
     }
     input {
@@ -23,6 +24,7 @@
 }
 
 .logo {
+    width: 300px;
     display: flex;
     align-items: center;
 }
@@ -30,8 +32,19 @@
     width: 16px;
     // height: 13px;
 }
+.search-popper,
 .search {
     width: 500px;
+}
+.search-popper {
+    .title-search {
+        color: #16182380;
+        font-size: 14px;
+        padding: 5px 12px;
+    }
+}
+.search {
+    position: relative;
     height: 46px;
     padding-left: 16px;
     background-color: rgba(22, 24, 35, 0.06);
@@ -39,7 +52,6 @@
     display: flex;
     align-items: center;
     border: 1px solid transparent;
-    position: relative;
 
     input {
         width: 431px;
@@ -105,3 +117,49 @@
         right: var(--search-btn-width);
     }
 }
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    i {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 60px;
+    }
+    img {
+        padding: 0 4px;
+    }
+}
+
+.option-popper {
+    position: relative;
+    width: 223px;
+    top: -16px;
+    .container-options {
+        padding: 8px 0;
+    }
+}
+
+// @keyframes fadeInScale {
+//     from {
+//         opacity: 0;
+//         transform: scale(0.8);
+//     }
+//     to {
+//         opacity: 1;
+//         transform: scale(1);
+//     }
+// }
+
+// .option-popper {
+//     opacity: 0;
+//     transform: scale(0.8); /* Bắt đầu với thu nhỏ và ẩn */
+//     transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Hiệu ứng mượt mà cho opacity và scale */
+// }
+
+// // .tippy-box[data-state='visible'] .option-popper {
+// //     opacity: 1;
+// //     transform: scale(1); /* Khi popper hiển thị, nó phóng to và có opacity = 1 */
+// // }
