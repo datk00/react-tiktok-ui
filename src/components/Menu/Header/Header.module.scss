@@ -1,0 +1,20 @@
+.wrapper {
+    height: 34px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.back-btn {
+    margin-left: 28px;
+    cursor: pointer;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

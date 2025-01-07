@@ -1,0 +1,24 @@
+.wrapper {
+    position: relative;
+}
+
+.option-popper {
+    position: relative;
+    width: 223px;
+    top: -16px;
+    right: -5px;
+    .container-options {
+        padding: 8px 0;
+    }
+}
+.upload-btn {
+    padding: 0 16px 0 12px;
+    height: 36px;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    border: 1px solid rgba(22, 24, 35, 0.12) !important;
+    img {
+        margin-right: 4px !important;
+    }
+}

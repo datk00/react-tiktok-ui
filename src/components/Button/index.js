@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 import classNames from 'classnames/bind';
+import images from '../../assets/images';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, primary = false, disabled = false, children, onClick, ...passProps }) {
+function Button({ to, href, icon, primary = false, disabled = false, children, onClick, ...passProps }) {
     let Comp = 'button';
 
     const props = {
@@ -35,6 +36,7 @@ function Button({ to, href, primary = false, disabled = false, children, onClick
 
     return (
         <Comp className={classes} {...props}>
+            {icon && <img className={cx('icon')} src={images[icon]} alt={icon}></img>}
             {children}
         </Comp>
     );

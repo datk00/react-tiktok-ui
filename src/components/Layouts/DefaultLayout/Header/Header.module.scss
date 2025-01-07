@@ -118,30 +118,6 @@
     }
 }
 
-.actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    i {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        height: 60px;
-    }
-    img {
-        padding: 0 4px;
-    }
-}
-
-.option-popper {
-    position: relative;
-    width: 223px;
-    top: -16px;
-    .container-options {
-        padding: 8px 0;
-    }
-}
-
 // @keyframes fadeInScale {
 //     from {
 //         opacity: 0;
