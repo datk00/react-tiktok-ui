@@ -9,6 +9,8 @@ import AccountItem from '../../../../AccountItem/AccountItem';
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 
+import { useDebounce } from '../../../../../hooks';
+
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -16,8 +18,11 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [focusInput, setFocusInput] = useState(true);
     const [loading, setLoading] = useState(false);
+
+    const valueDebounced = useDebounce(inputValue, 500);
+
     useEffect(() => {
-        if (!inputValue.trim()) {
+        if (!valueDebounced.trim()) {
             setSearchResult([]);
             return;
         }
@@ -25,7 +30,9 @@ function Search() {
         const fetchData = async () => {
             try {
                 const response = await fetch(
-                    `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(inputValue)}&type=less`,
+                    `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+                        valueDebounced,
+                    )}&type=less`,
                 );
                 const data = await response.json();
                 setSearchResult(data.data);
@@ -38,7 +45,7 @@ function Search() {
         };
 
         fetchData();
-    }, [inputValue]);
+    }, [valueDebounced]);
 
     const inputRef = useRef();
 
