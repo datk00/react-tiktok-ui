@@ -1,22 +1,34 @@
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
-import images from '../../../../../assets/images';
 import styles from './Actions.module.scss';
 import classNames from 'classnames/bind';
 
 import Button from '../../../../Button';
 import Menu from '../../../../Menu';
+import {
+    CoinIcon,
+    DarkModeIcon,
+    HomePlayIcon,
+    InboxIcon,
+    LanguageIcon,
+    LogoutIcon,
+    MoreIcon,
+    PlusIcon,
+    QuestionIcon,
+    SettingIcon,
+    UserIcon,
+} from '../../../../Icon';
 
 const cx = classNames.bind(styles);
 function Actions() {
     let dataMenuOptions = [
         {
-            icon: 'homePlay',
+            IconElement: HomePlayIcon,
             name: 'Creator tools',
         },
         {
-            icon: 'language',
+            IconElement: LanguageIcon,
             name: 'English',
             childrenOptions: {
                 title: 'Language',
@@ -27,11 +39,11 @@ function Actions() {
             },
         },
         {
-            icon: 'question',
+            IconElement: QuestionIcon,
             name: 'Feedbacks and help',
         },
         {
-            icon: 'darkMode',
+            IconElement: DarkModeIcon,
             name: 'Dark Mode',
         },
     ];
@@ -41,12 +53,12 @@ function Actions() {
     if (isCurrentUser) {
         dataMenuOptions = [
             ...[
-                { icon: 'user', name: 'View profile' },
-                { icon: 'coin', name: 'Get coins' },
-                { icon: 'setting', name: 'Settings' },
+                { IconElement: UserIcon, name: 'View profile' },
+                { IconElement: CoinIcon, name: 'Get coins' },
+                { IconElement: SettingIcon, name: 'Settings' },
             ],
             ...dataMenuOptions,
-            { icon: 'logout', name: 'Log out', border: 'Top' },
+            { IconElement: LogoutIcon, name: 'Log out', border: 'Top' },
         ];
     }
     console.log(dataMenuOptions);
@@ -55,11 +67,11 @@ function Actions() {
         <div className={cx('actions')}>
             {isCurrentUser ? (
                 <>
-                    <Button className={cx('upload-btn')} icon="plus">
+                    <Button className={cx('upload-btn')} IconElement={PlusIcon}>
                         Upload
                     </Button>
                     <Tippy delay={[0, 100]} content="Inbox">
-                        <img className={cx('inbox')} src={images.inbox} alt="inbox"></img>
+                        <InboxIcon classes={cx('inbox')} numberNotify={23} />
                     </Tippy>
                 </>
             ) : (
@@ -76,7 +88,8 @@ function Actions() {
                             alt="avatar"
                         ></img>
                     ) : (
-                        <img src={images.more} alt="more"></img>
+                        <MoreIcon />
+                        // <img src={images.more} alt="more"></img>
                     )}
                 </i>
             </Menu>

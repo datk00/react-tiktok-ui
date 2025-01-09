@@ -40,7 +40,7 @@ function Menu({ data = {}, children, w }) {
                                 )}
                                 {current.data.map((item, index) => {
                                     let propsOptionItem = {
-                                        icon: item.icon,
+                                        IconElement: item.IconElement,
                                         name: item.name,
                                         [item.type === undefined ? 'nameBold' : 'nameNormal']: true,
                                         [`border${item.border}`]: true,

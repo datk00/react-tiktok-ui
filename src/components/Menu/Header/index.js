@@ -1,13 +1,13 @@
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
-import images from '../../../assets/images';
+import { BackIcon } from '../../Icon';
 
 const cx = classNames.bind(styles);
 
 function Header({ children, clickBack = () => {} }) {
     return (
         <div className={cx('wrapper')}>
-            <img className={cx('back-btn')} src={images.back} onClick={clickBack} alt="back-btn" />
+            <BackIcon classes={cx('back-btn')} onClick={clickBack} />
             <span className={cx('title')}>{children}</span>
         </div>
     );

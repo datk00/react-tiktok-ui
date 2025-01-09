@@ -1,5 +1,4 @@
 @use 'css-reset-and-normalize';
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
     --black: rgb(22, 24, 35);
@@ -13,8 +12,29 @@
 html {
 }
 
+//fonts emmbedded
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+    font-weight: 600;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Bold.woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: TikTokDisplayFont;
+    src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+}
+
 body {
-    font-family: 'Inter', serif;
+    font-family: 'TikTokFont', serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -22,7 +42,10 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
 }
-
+svg:focus,
+button:focus {
+    outline: none;
+}
 button {
     user-select: none;
 }
