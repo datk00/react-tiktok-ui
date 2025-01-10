@@ -5,11 +5,13 @@ import HeadlessTippy from '@tippyjs/react/headless'; // different import path!
 import { ClearIcon, LoadingIcon, SearchIcon } from '../../../../Icon';
 import { Wrapper as SearchPopper } from '../../../../Popper';
 import AccountItem from '../../../../AccountItem/AccountItem';
+import SearchResultItem from '../../../../SearchResultItem';
 
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
 
 import { useDebounce } from '../../../../../hooks';
+import apiSearchTiktok from '../../../../../apiServices/searchTiktok';
 
 const cx = classNames.bind(styles);
 
@@ -29,14 +31,10 @@ function Search() {
         setLoading(true);
         const fetchData = async () => {
             try {
-                const response = await fetch(
-                    `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                        valueDebounced,
-                    )}&type=less`,
-                );
-                const data = await response.json();
-                setSearchResult(data.data);
-                // console.log(data.data);
+                const data = await apiSearchTiktok(valueDebounced);
+                console.log(data);
+                // const data = await apiSearch(valueDebounced);
+                setSearchResult(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
@@ -64,15 +62,38 @@ function Search() {
     return (
         <HeadlessTippy
             visible={focusInput && searchResult.length > 0}
+            // visible={true}
             interactive
             appendTo={document.body}
             render={(attrs) => (
                 <div className={cx('search-popper')} tabIndex="-1" {...attrs}>
                     <SearchPopper>
-                        <span className={cx('title-search')}>Accounts</span>
-                        {searchResult.map((item) => {
-                            return <AccountItem key={item.id} data={item} />;
-                        })}
+                        <div className={cx('inner-popper')}>
+                            {searchResult.map((item, index) => {
+                                if (item.extra_info.is_verified === undefined) {
+                                    if (
+                                        index < searchResult.length - 1 &&
+                                        searchResult[index + 1].extra_info.is_verified !== undefined
+                                    ) {
+                                        return (
+                                            <>
+                                                <SearchResultItem key={index}>{item.content}</SearchResultItem>
+                                                <span className={cx('title-search')}>Accounts</span>
+                                            </>
+                                        );
+                                    } else {
+                                        return <SearchResultItem key={index}>{item.content}</SearchResultItem>;
+                                    }
+                                } else {
+                                    return <AccountItem key={index} data={item.extra_info} />;
+                                }
+                            })}
+                            {/* <SearchResultItem>hoa phan</SearchResultItem> */}
+                            {/* <span className={cx('title-search')}>Accounts</span> */}
+                            {/* {searchResult.map((item) => {
+                                return <AccountItem key={item.id} data={item} />;
+                            })} */}
+                        </div>
                     </SearchPopper>
                 </div>
             )}

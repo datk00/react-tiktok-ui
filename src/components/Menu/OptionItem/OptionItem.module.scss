@@ -1,14 +1,24 @@
 .wrapper {
-    padding: 7px 8px 10px 16px;
+    // padding: 7px 8px 10px 16px;
     display: flex;
     cursor: pointer;
     align-items: center;
-
+}
+.hoverBackground {
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
 }
-
+.hoverText {
+    &:hover {
+        span {
+            color: var(--red);
+        }
+        svg {
+            fill: var(--red);
+        }
+    }
+}
 .icon {
     margin-right: 9px;
 }
@@ -16,6 +26,10 @@
 .nameOption {
     font-size: 16px;
     color: #161823;
+}
+
+.mgLeft {
+    margin-left: 12px;
 }
 .nameNormal {
     font-weight: 400;

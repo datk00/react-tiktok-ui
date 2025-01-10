@@ -51,7 +51,11 @@ function Menu({ data = {}, children, w }) {
                                             setHistory([...history, item.childrenOptions]);
                                         };
                                     }
-                                    return <OptionItem key={index} {...propsOptionItem} />;
+                                    return (
+                                        <div className={cx('pd')}>
+                                            <OptionItem key={index} {...propsOptionItem} />
+                                        </div>
+                                    );
                                 })}
                             </div>
                         </OptionMorePoppper>

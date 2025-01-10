@@ -33,7 +33,8 @@ import PlusIcon from './header/PlusIcon';
 import SearchIcon from './header/SearchIcon';
 import SettingIcon from './header/SettingIcon';
 import UserIcon from './header/UserIcon';
-
+import ReportIcon from './header/ReportIcon';
+import NoCareIcon from './header/NoCareIcon';
 export {
     HomePlayIcon,
     DarkModeIcon,
@@ -51,4 +52,6 @@ export {
     SearchIcon,
     SettingIcon,
     UserIcon,
+    ReportIcon,
+    NoCareIcon,
 };

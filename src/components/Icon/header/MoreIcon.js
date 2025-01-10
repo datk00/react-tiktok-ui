@@ -1,6 +1,8 @@
-function MoreIcon({ width = '20', height = '20', fill = 'currentColor', classes = '' }) {
+import { forwardRef } from 'react';
+const MoreIcon = forwardRef(({ width = '20', height = '20', fill = 'currentColor', classes = '' }, ref) => {
     return (
         <svg
+            ref={ref}
             className={classes}
             width={width}
             height={height}
@@ -15,6 +17,6 @@ function MoreIcon({ width = '20', height = '20', fill = 'currentColor', classes 
             ></path>
         </svg>
     );
-}
+});
 
 export default MoreIcon;

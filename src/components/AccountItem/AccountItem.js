@@ -12,23 +12,23 @@ const cx = classNames.bind(styles);
 function AccountItem({ data }) {
     const [avatar, setAvatar] = useState('');
     return (
-        <Link to={`/user/@${data.nickname}`} className={cx('wrapper')}>
+        <Link to={`/user/@${data.unique_id}`} className={cx('wrapper')}>
             <img
                 className={cx('avatar')}
-                src={avatar || data.avatar}
-                alt={data.avatar}
+                src={avatar || data.rich_sug_avatar_uri}
+                alt={data.unique_id}
                 onError={() => {
                     setAvatar(images.logoNoText);
                 }}
             />
             <div className={cx('info')}>
                 <div className={cx('username')}>
-                    <h4>{data.nickname}</h4>
-                    {data.tick && <CheckIcon width="14" height="14" classes={cx('check')} />}
+                    <h4>{data.unique_id}</h4>
+                    {data.is_verified && <CheckIcon width="14" height="14" classes={cx('check')} />}
 
                     {/* <img className={cx('check')} src={images.check} alt="check"></img> */}
                 </div>
-                <p className={cx('name')}>{data.full_name || 'noFullName'}</p>
+                <p className={cx('name')}>{data.nickname || 'noFullName'}</p>
             </div>
         </Link>
     );
